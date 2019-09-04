@@ -18,7 +18,7 @@ print('Numero de interfaces:' + ifNumber.value)
 
 while 1>0:
 	Bulk = session.get_bulk(['ifInOctets', 'ifOutOctets'], 0, numberInterfaces)
-	time.sleep(4)
+	time.sleep(5)
 	Bulk2 = session.get_bulk(['ifInOctets', 'ifOutOctets'], 0, numberInterfaces)
 
 	for i in range(numberInterfaces):
@@ -39,8 +39,8 @@ while 1>0:
 		print "Interface:", i
 		print "IN ", valueIN1[i], "bytes"
 		print "OUT ", valueOUT1[i], "bytes"
-		print "Taxa de entrada ", IN_BytesPerSec[i], "bytes"
-		print "Taxa de saida ", OUT_BytesPerSec[i], "bytes"
+		print "Taxa de entrada ", IN_BytesPerSec[i], "bytes/s"
+		print "Taxa de saida ", OUT_BytesPerSec[i], "bytes/s"
 		print "Maxima: ", MAX_BytesPerSec
 
 		if((IN_BytesPerSec[i] or  OUT_BytesPerSec[i]) >= MAX_BytesPerSec):
